@@ -138,7 +138,6 @@ function App() {
           onDateChange={onDateChange}
           handleRemovePerson={handleRemovePerson}
         />
-
         <div className='line' />
         <IntersectionsList intersections={intersections} />
       </div>
