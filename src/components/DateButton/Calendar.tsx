@@ -14,7 +14,18 @@ interface ICalendarProps {
   showCalendar: (isVisible: boolean) => void;
 }
 
-const Calendar: React.FC<ICalendarProps> = ({ selectedDates, currentMonth, currentYear, positionX, positionY, onSelect, nextMonth, prevMonth, cancel, showCalendar }) => {
+const Calendar: React.FC<ICalendarProps> = ({ 
+                            selectedDates, 
+                            currentMonth, 
+                            currentYear, 
+                            positionX, 
+                            positionY, 
+                            onSelect, 
+                            nextMonth, 
+                            prevMonth, 
+                            cancel, 
+                            showCalendar 
+                          }) => {
   
   
   const monthNames = ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];

@@ -51,7 +51,9 @@ function App() {
     const updatedList = [...people.slice(0, index), ...people.slice(index + 1)]
     setPeople(updatedList);
   }
+
   const options: Intl.DateTimeFormatOptions = { month: 'long', day: 'numeric' };
+
   const datesArrayToString = (dates: Date[]): string => {
     const dateString = dates.map((date) => date.toLocaleDateString('ru-RU', options));
     return dateString[0] + ' - ' + dateString[dateString.length - 1];
@@ -102,18 +104,19 @@ function App() {
         }
         return acc;
       }, [] as { days: Set<Date>; people: string[] }[]);
+
       return intersections.sort((a, b) => b.people.length - a.people.length)
-      .reduce((acc, intersection) => {
-        const dateRange = datesArrayToString(Array.from(intersection.days));
-        const existingEntry = acc.find(entry => entry.dateRange === dateRange);
-        if (existingEntry) {
-          intersection.people.forEach((entry) => {
-            existingEntry.peopleList.add(entry);
-          })
-        } else {
-          const peopleList = new Set(intersection.people);
-          acc.push({ dateRange, peopleList: peopleList });
-        }
+        .reduce((acc, intersection) => {
+          const dateRange = datesArrayToString(Array.from(intersection.days));
+          const existingEntry = acc.find(entry => entry.dateRange === dateRange);
+          if (existingEntry) {
+            intersection.people.forEach((entry) => {
+              existingEntry.peopleList.add(entry);
+            })
+          } else {
+            const peopleList = new Set(intersection.people);
+            acc.push({ dateRange, peopleList: peopleList });
+          }
         return acc;
       }, [] as { dateRange: string, peopleList: Set<string> }[]).sort((a, b) => b.peopleList.size - a.peopleList.size);
     };
