@@ -24,8 +24,10 @@ function App() {
 
   const handleSubmitPerson = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    handleAddPerson(name);
-    setName("");
+    if(name && name !== ""){
+      handleAddPerson(name);
+      setName("");
+    }
   };
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -58,6 +60,7 @@ function App() {
     const dateString = dates.map((date) => date.toLocaleDateString('ru-RU', options));
     return dateString[0] + ' - ' + dateString[dateString.length - 1];
   }
+
   const findConsecutiveDates = (dates: Set<Date>): Set<Set<Date>> => {
     const result = new Set<Set<Date>>();
   
@@ -79,9 +82,9 @@ function App() {
         result.add(group);
       }
     }
-  
     return result;
   }
+
   useEffect(() => {
     const getIntersections = () => {
       const intersections = people.reduce((acc, person, index) => {
@@ -123,6 +126,7 @@ function App() {
 
     const intersections = getIntersections();
     setIntersections(intersections);
+
   }, [people]);
   
   return (
