@@ -16,6 +16,7 @@ function App() {
   const [people, setPeople] = useState<Person[]>([]);
   const [name, setName] = useState<string>("");
   const [intersections, setIntersections] = useState<Intersection[]>([]);
+  const [error, setError] = useState('');
 
   const handleAddPerson = (name: string) => {
     const newPerson: Person = { name, availableDays: [new Date()] };
@@ -25,8 +26,22 @@ function App() {
   const handleSubmitPerson = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if(name && name !== ""){
-      handleAddPerson(name);
-      setName("");
+      let isNameExists = false;
+      for( const person of people){
+        if(person.name === name){
+          isNameExists = true;
+        }
+      }
+      if(!isNameExists){
+        handleAddPerson(name);
+        setName("");
+        setError("");
+      } else {
+        setError('Такое имя уже существует в списке. Введите другое имя, добавьте инициалы или введите любые другие символы, чтобы сделать имя уникальным')
+        setTimeout(() => {
+          setError("");
+        }, 3000);
+      }
     }
   };
 
@@ -134,6 +149,7 @@ function App() {
       <div className='main-screen__content'>
         <PersonForm 
           name={name}
+          error={error}
           handleChange={handleNameChange}
           handleSubmit={handleSubmitPerson} 
         />

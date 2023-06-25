@@ -56,6 +56,11 @@ code {
         }
       }      
     }
+    .error {
+      color: #ff0000;
+      font-size: 0.8rem;
+      margin-bottom: 1em;
+    }
   }
   //Список совпадений
   &__footer{

@@ -12,7 +12,7 @@
 .calendar {
 	position: absolute;
 	width: 278px;
-	height: 278px;
+	height: 308px;
 	border: 1px solid #ccc;
 	padding: 10px;
 	background-color: #fff;
@@ -77,11 +77,11 @@
   }
   //нижняя часть и кнопка Очистить
   .footer {
-	font-size: 12px;
+	font-size: 0.8rem;
 	margin: 0.4em 0.8em;
 	button {
         background-color: #dd1b1b;
-        border-radius: 10px;
+        border-radius: 0.83em;
         color: #fff;
         cursor: pointer;
 		padding: 0.4em 0.8em;
