@@ -17,7 +17,6 @@ function App() {
   const [name, setName] = useState<string>("");
   const [intersections, setIntersections] = useState<Intersection[]>([]);
   const [error, setError] = useState('');
-  console.log(people);
   const handleAddPerson = (name: string) => {
     const newPerson: Person = { name, availableDays: [new Date()] };
     setPeople([...people, newPerson]);
