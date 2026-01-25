@@ -1,3 +1,6 @@
+# Проект - организатор походов
+Вводите свое имя, выбираете даты, в которые хотите пойти в поход - вам отобразится список пользователей, готовых отправиться в поход в эти же дни.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
